@@ -1,0 +1,68 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+<applet code="Area" width=500 height=500>
+</applet>
+*/
+public class Area extends JApplet 
+{	
+	
+	JTextField jt,jt1,jt2;
+	JLabel jl,j,j1;
+	JButton jb;
+	
+	public void init()
+	{
+	try
+	{
+		SwingUtilities.invokeLater(new Runnable()
+		{
+			public void run()
+			{
+				makeGUI();
+			}
+		});
+	}
+	catch(Exception e)
+	{
+		System.out.println(e);
+	}
+	}
+	public void makeGUI()
+	{
+		setLayout(new FlowLayout());
+		jt=new JTextField(05);
+		jt1=new JTextField(05);
+		j=new JLabel("Enter the height of a triangle:");
+		j1=new JLabel("Enter the base of a triangle:");
+		jl=new JLabel("");
+		 jb=new JButton("RESULT");
+		add(j);		//label 1
+		add(jt);	//text field 1
+		add(j1);	//label
+		add(jt1);	//text field 2
+		
+		add(jb);	//button
+		add(jl);	//label
+	
+	
+	
+	jb.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent ae)
+		{
+			int a=Integer.parseInt(jt.getText());
+			int b=Integer.parseInt(jt1.getText());
+			
+			double result=0.5*a*b;
+			jl.setText("The Area of triangle is: " +result);
+
+			
+		
+		}
+		});
+	
+	
+}
+}
